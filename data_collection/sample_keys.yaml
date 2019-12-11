@@ -1,0 +1,14 @@
+
+# sample file for holding keys to API
+# create a copy called 'keys.yaml' and add your keys
+# the keys file is ignored by git
+
+
+# data collection keys
+twitter:
+    APIKey:
+    APISecretKey:
+    AccessToken:
+    AccessTokenSecret:
+AlphaVantage:
+
