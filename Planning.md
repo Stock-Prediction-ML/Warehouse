@@ -2,18 +2,19 @@
 
 Plan details for the project
 
-## Initial Data Gathering
+## Data Collection/Ingestion
 
-The data will be gathered using python. 
-APIs will be used when available. 
-As data is gathered, it will be stored locally, as buffer, then batch uploaded to AWS (S3).
-Later this will be moved to automatic data ingestion pipeline.
+* Use NiFi on a EC2 instance to collect the data.
+* As data is gathered, it will be stored locally, as buffer, then batch uploaded to AWS (S3).
+
+**TODO**: Add diagram showing this
 
 ### Data Sources
 
 - [ ] [Twitter](https://developer.twitter.com/en/docs)
 - [ ] [StockNewsAPI](https://stocknewsapi.com/)
 - [ ] [AlphaVantage](https://www.alphavantage.co/)
+- [ ] Reddit
 
 ### Source Details
 
@@ -38,15 +39,43 @@ Later this will be moved to automatic data ingestion pipeline.
     * emojis
   * Push results to an S3 bucket
 
-## Data Ingestion
-
-NiFi will be used to bring in data from web sources. This data will be pushed to an S3 bucket for long-term storage.
-
 ## Storage
 
 Data will be stored in an amazon S3 bucket for long term storage. 
 S3 buckets can be easily integrated with other AWS tools such as EMR. 
 The datalake will be setup on-demand with Amazon EMR and Hive.
+
+## WareHouse Logical Design
+
+A star schema will be used. 
+Should consider providing schemas multiple levels of normalization.
+
+**TODO**: Add schema concept
+
+### Fact Table
+
+The facts will be Timestamp + Symbol.
+The Timestamp will be controlled by the intraday stock sampling frequency.
+
+### Dimensions
+
+The dimension of the fact table.
+
+#### Stock
+
+**TODO**
+
+#### Twitter
+
+**TODO**
+
+#### News
+
+**TODO**
+
+#### Reddit
+
+**TODO**
 
 ## Other Ideas
 
@@ -60,4 +89,3 @@ The datalake will be setup on-demand with Amazon EMR and Hive.
   * Vectorize with a pretrained tool
     * [AllanNLP](https://allennlp.org/)
     * [IXA Pipelines](http://ixa2.si.ehu.es/ixa-pipes/)
-* Use a continuous data ingestion platform
