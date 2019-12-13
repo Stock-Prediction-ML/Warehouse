@@ -10,5 +10,7 @@ twitter:
     APISecretKey:
     AccessToken:
     AccessTokenSecret:
-AlphaVantage:
-
+alpha_vantage:
+    APIKey:
+stock_news_api:
+    APIKey:
