@@ -6,6 +6,4 @@ The code for scraping data.
 
     ├── abstract_api.py                     # An ABC to unify the API of data collection classes
     ├── base.py                             # A collection of generic functions used in the data collection classes
-    ├── tests                               # Unit test files
-         ├── test_base.py                   # Tests for base.py
-         └──                                # 
+    └──                                     # 
