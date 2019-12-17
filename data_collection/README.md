@@ -19,13 +19,8 @@ This file is git ignored.
 * **`install.sh`** can be used to install the required dependencies on linux
 * `requirements.txt` contains the python requirements
 
-## Code
-    ├── abstract_api.py                     # An ABC to unify the API of data collection classes
-    ├── base.py                             # A collection of generic functions used in the data collection classes
-    ├── tests                               # Unit test files
-         ├── test_base.py                   # Tests for base.py
-         └──                                # 
-
 ## Other Files and Folders
 
+* `scraper/` - The data scraping code
 * `stock_symbols/` - This folder contains stock symbols used in the data collection process
+

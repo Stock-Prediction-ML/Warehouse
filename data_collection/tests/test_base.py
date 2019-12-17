@@ -3,7 +3,7 @@ This file contains test for base.py
 """
 
 import unittest
-from base import get_api_keys, get_stock_symbols
+from scraper.base import get_api_keys, get_stock_symbols
 
 class TestBase(unittest.TestCase):
 
