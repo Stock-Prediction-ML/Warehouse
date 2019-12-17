@@ -6,10 +6,10 @@
 
 # data collection keys
 twitter:
-    APIKey:
-    APISecretKey:
-    AccessToken:
-    AccessTokenSecret:
+    APIKey: 'ngwebufoiejdnloaju3712nor'
+    APISecretKey: 'hi'
+    AccessToken: 'ghfjs'
+    AccessTokenSecret: 'nsjugehbwekf'
 alpha_vantage:
     APIKey:
 stock_news_api:

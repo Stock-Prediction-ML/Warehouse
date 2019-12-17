@@ -6,9 +6,11 @@ This file contains generic functions used in the data collection packages.
 
 """
 import os
-from typing import Dict
+import glob
+from typing import Dict, List
+import yaml
 
-def get_api_keys(source: str, path: str) -> Dict[str]:
+def get_api_keys(source: str, path: str = './keys.yaml') -> Dict[str,str]:
     """
     Get API keys from file
 
@@ -27,7 +29,6 @@ def get_api_keys(source: str, path: str) -> Dict[str]:
     """
 
     file_path = str()
-    vals = list()
 
     # expand path if relative
     if path[0] == '~':
@@ -41,6 +42,40 @@ def get_api_keys(source: str, path: str) -> Dict[str]:
     # read in file assuming a header
     # comma delimited
     with open(file_path, 'r') as in_file:
-        in_file.readline().strip().split(',')
-        vals = in_file.readline().strip().split(',')
-    return vals
+        keys = yaml.load(in_file, Loader = yaml.FullLoader)[source]
+    return keys
+
+def get_stock_symbols(market: str) -> List[str]:
+    """
+    Read stock symbols from internal file
+
+    Parameters
+    ----------
+    market: str
+        The stock market (NASDAQ | NYSE)
+    
+    Returns
+    -------
+    List
+        A list of symbols for the given market
+    """
+
+    sym = str()
+    syms = list()
+    sym_files = list()
+
+    # glob the sym files and get all the markets
+    sym_files = glob.glob('./stock_symbols/sym_*.txt')
+    for sym in sym_files:
+        syms.append(sym.strip().replace('.txt','').split('_')[2])
+    if market.upper() not in syms:
+        print(syms)
+        raise Exception
+
+    # read out symbols for given market
+    # market file name should be sym_<MARKET_NAME> located at ./stock_symbols/
+    symbols = list()
+    with open('./stock_symbols/sym_' + market.upper() + '.txt') as market_file:
+        for line in market_file:
+            symbols.append(line.strip())
+    return symbols
