@@ -23,4 +23,4 @@ This file is git ignored.
 
 * `scraper/` - The data scraping code
 * `stock_symbols/` - This folder contains stock symbols used in the data collection process
-
+* `tests/` - Unit tests for `scraper/`
