@@ -19,6 +19,11 @@ This file is git ignored.
 * **`install.sh`** can be used to install the required dependencies on linux
 * `requirements.txt` contains the python requirements
 
+## Unit Tests
+
+* `run_tests.sh` - Runs the unit tests
+* `run_coverage.sh` - Runs the unit tests and produces a coverage report
+
 ## Other Files and Folders
 
 * `scraper/` - The data scraping code
