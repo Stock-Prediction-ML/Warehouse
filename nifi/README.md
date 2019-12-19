@@ -14,10 +14,28 @@ Some settings are required in the AWS deployment stage.
   * Port Range: 8080 (as example), remember this port
   * Source: Add your IP address (for example); do not allow all connections (0.0.0.0)
 
+### Connect to Instance
+
+With ssh
+
+```bash
+$ ssh -i <key_file>.pem ubuntu@<DNS_Name>
+```
+
 ### Install
 
-Run [`./install_nifi.sh`](https://github.com/sjmiller8182/DBMS_Proj/blob/master/nifi/install_nifi.sh) to install nifi.
+Clone this repo over http.
 
+```bash
+$ git clone https://github.com/sjmiller8182/Warehouse-Stock-Alternate.git
+```
+
+Run [`./install_nifi.sh`](https://github.com/sjmiller8182/DBMS_Proj/blob/master/nifi/install_nifi.sh) as sudo to install nifi.
+
+```bash
+$ chmod +x ./Warehouse-Stock-Alternate/nifi/install_nifi.sh
+$ sudo ./Warehouse-Stock-Alternate/nifi/install_nifi.sh
+```
 The install script installs the following
 
 * java 8
