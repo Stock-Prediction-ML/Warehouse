@@ -41,17 +41,20 @@ The install script installs the following
 * java 8
 * NiFi
 
-### Configure
+### Configure and Restart
 
 Configure nifi with the instance IP address
 
 * `$ vi conf/nifi.properties`
 * Set `nifi.remote.input.host` to the instance public IP address
 * Save changes and close vi
-
-### Restart and Connect
-
 * Restart NiFi by calling `./bin/nifi.sh restart`
+
+```bash
+$ sudo ./config.sh 172.31.23.244 ./nifi-1.10.0/conf/nifi.properties
+```
+###  and Connect
+
 * Connect to NiFi UI
   * In a web browser connect to <Instance_IP_Address>:<Connection_Port>/nifi/
 * Now NiFi should be up and running
