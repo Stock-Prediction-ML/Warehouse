@@ -51,13 +51,28 @@ Configure nifi with the instance IP address
 * Restart NiFi by calling `./bin/nifi.sh restart`
 
 ```bash
-$ sudo ./config.sh 172.31.23.244 ./nifi-1.10.0/conf/nifi.properties
+$ sudo ./config.sh <IPv4 Public IP> ./nifi-1.10.0/conf/nifi.properties
 ```
-###  and Connect
+### Connect
 
 * Connect to NiFi UI
   * In a web browser connect to <Instance_IP_Address>:<Connection_Port>/nifi/
 * Now NiFi should be up and running
+
+### Summary
+
+```bash
+# connect and git scriptes
+$ ssh -i <key_file>.pem ubuntu@<DNS_Name>
+$ git clone https://github.com/sjmiller8182/Warehouse-Stock-Alternate.git
+$ cd Warehouse-Stock-Alternate/nifi/
+
+# install, configure, and start
+$ chmod +x ./install_nifi.sh
+$ sudo ./install_nifi.sh
+$ sudo ./config.sh <IPv4 Public IP> ./nifi-1.10.0/conf/nifi.properties
+$ sudo ./nifi-1.10.0/bin/nifi.sh restart
+```
 
 #### References
 
