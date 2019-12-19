@@ -30,8 +30,12 @@ Clone this repo over http.
 $ git clone https://github.com/sjmiller8182/Warehouse-Stock-Alternate.git
 ```
 
-Run [`./install_nifi.sh`](https://github.com/sjmiller8182/DBMS_Proj/blob/master/nifi/install_nifi.sh) to install nifi.
+Run [`./install_nifi.sh`](https://github.com/sjmiller8182/DBMS_Proj/blob/master/nifi/install_nifi.sh) as sudo to install nifi.
 
+```bash
+$ chmod +x ./Warehouse-Stock-Alternate/nifi/install_nifi.sh
+$ sudo ./Warehouse-Stock-Alternate/nifi/install_nifi.sh
+```
 The install script installs the following
 
 * java 8
