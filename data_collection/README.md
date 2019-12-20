@@ -29,3 +29,7 @@ This file is git ignored.
 * `scraper/` - The data scraping code
 * `stock_symbols/` - This folder contains stock symbols used in the data collection process
 * `tests/` - Unit tests for `scraper/`
+
+#### References
+
+[Installing Anaconda](https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart)
