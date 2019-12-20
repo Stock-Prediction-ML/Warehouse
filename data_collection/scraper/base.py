@@ -10,7 +10,7 @@ import glob
 from typing import Dict, List
 import yaml
 
-def get_api_keys(source: str, path: str = './keys.yaml') -> Dict[str,str]:
+def get_api_keys(source: str, path: str) -> Dict[str,str]:
     """
     Get API keys from file
 
