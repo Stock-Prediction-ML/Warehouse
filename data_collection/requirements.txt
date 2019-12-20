@@ -1,3 +1,7 @@
+
+# alpha vantage API
+alpha-vantage==2.1.2
+
 # twitter API lib
-twython==3.7.0
+tweepy==3.8.0
 
