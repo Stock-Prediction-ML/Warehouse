@@ -48,14 +48,7 @@ class KeyFob(AbstractFob):
     def __init__(self) -> None:
         """
         Class constructor. 
-        Reads key on construction.
-
-        Parameters
-        ----------
-        path : str, optional
-            The path to the key file
         """
-        
         super().__init__()
 
     def set_keys(self, path: str) -> None:
@@ -101,5 +94,5 @@ class KeyFob(AbstractFob):
         """
         
         # key error is raised if source is invalid
-        return self.keys[source]
+        return self.keys[source.lower()]
 
