@@ -6,6 +6,8 @@ import glob
 from typing import Dict, List
 import yaml
 
+from scraper.abstract_fob import AbstractFob
+
 def get_stock_symbols(market: str) -> List[str]:
     """
     Read stock symbols from internal file
@@ -41,7 +43,7 @@ def get_stock_symbols(market: str) -> List[str]:
             symbols.append(line.strip())
     return symbols
 
-class KeyFob():
+class KeyFob(AbstractFob):
 
     def __init__(self) -> None:
         """
@@ -53,28 +55,8 @@ class KeyFob():
         path : str, optional
             The path to the key file
         """
-        self.path = str()
-        self.keys = dict()
         
-    @staticmethod
-    def _read_yaml(path: str) -> Dict[str,str]:
-        """
-        read keys from yaml file
-
-        Parameters
-        ----------
-        path : str, optional
-            The path to the key file
-
-        Returns
-        -------
-        Dict
-            A dictionary containing the requested API keys.
-            The dict is keyed by the names in key file.
-        """
-        with open(path, 'r') as in_file:
-            keys = yaml.load(in_file, Loader = yaml.FullLoader)
-        return keys
+        super().__init__()
 
     def set_keys(self, path: str) -> None:
         """

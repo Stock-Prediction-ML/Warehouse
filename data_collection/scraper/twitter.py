@@ -14,7 +14,7 @@ import logging
 
 import tweepy
 
-from abstract_api import AbstractAPI
+from scraper.abstract_api import AbstractAPI
 from base import KeyFob
 
 class TwitterScraper(AbstractAPI):
