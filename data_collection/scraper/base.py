@@ -1,49 +1,10 @@
 """Base
-This file contains generic functions used in the data collection packages.
-
-    * keys_available - checks if API keys exist for a given API
-    * get_api_keys - returns the API keys for a given API
 
 """
 import os
 import glob
 from typing import Dict, List
 import yaml
-
-def get_api_keys(source: str, path: str) -> Dict[str,str]:
-    """
-    Get API keys from file
-
-    Parameters
-    ----------
-    source : str
-        The name of the data source
-    path : str, optional
-        The path to the key file
-
-    Returns
-    -------
-    Dict
-        A dictionary containing the requested API keys.
-        The dict is keyed by the names in key file.
-    """
-
-    file_path = str()
-
-    # expand path if relative
-    if path[0] == '~':
-        file_path = os.path.expanduser(path)
-    elif path[0] == '.':
-        file_path = os.path.abspath(path)
-    else:
-        # assume abs path
-        file_path = path
-
-    # read in file assuming a header
-    # comma delimited
-    with open(file_path, 'r') as in_file:
-        keys = yaml.load(in_file, Loader = yaml.FullLoader)[source]
-    return keys
 
 def get_stock_symbols(market: str) -> List[str]:
     """
@@ -79,3 +40,84 @@ def get_stock_symbols(market: str) -> List[str]:
         for line in market_file:
             symbols.append(line.strip())
     return symbols
+
+class KeyFob():
+
+    def __init__(self) -> None:
+        """
+        Class constructor. 
+        Reads key on construction.
+
+        Parameters
+        ----------
+        path : str, optional
+            The path to the key file
+        """
+        self.path = str()
+        self.keys = dict()
+        
+    @staticmethod
+    def _read_yaml(path: str) -> Dict[str,str]:
+        """
+        read keys from yaml file
+
+        Parameters
+        ----------
+        path : str, optional
+            The path to the key file
+
+        Returns
+        -------
+        Dict
+            A dictionary containing the requested API keys.
+            The dict is keyed by the names in key file.
+        """
+        with open(path, 'r') as in_file:
+            keys = yaml.load(in_file, Loader = yaml.FullLoader)
+        return keys
+
+    def set_keys(self, path: str) -> None:
+        """
+        Get API keys from file
+
+        Parameters
+        ----------
+        path : str, optional
+            The path to the key file
+        """
+
+        file_path = str()
+
+        # expand path if relative
+        if path[0] == '~':
+            file_path = os.path.expanduser(path)
+        elif path[0] == '.':
+            file_path = os.path.abspath(path)
+        else:
+            # assume abs path
+            file_path = path
+
+        self.path = file_path
+
+        # read the key file (yaml)
+        # store keys in instance
+        self.keys = self._read_yaml(self.path)
+
+    def get_keyset(self, source: str) -> Dict[str,str]:
+        """
+        Get a set of api keys from keyfob
+
+        Parameters
+        ----------
+        source : str
+            An available key source
+
+        Returns
+        -------
+        Dict
+            A dictionary containing the requested API keys.
+        """
+        
+        # key error is raised if source is invalid
+        return self.keys[source]
+

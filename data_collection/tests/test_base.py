@@ -3,14 +3,16 @@ This file contains test for base.py
 """
 
 import unittest
-from scraper.base import get_api_keys, get_stock_symbols
+from scraper.base import get_stock_symbols, KeyFob
 
 class TestBase(unittest.TestCase):
 
-    def test_get_api_keys(self):
+    def test_keyfob(self):
 
+        key_fob = KeyFob()
+        key_fob.set_keys(path = './sample_keys.yaml')
         # test with twitter
-        keys = get_api_keys('twitter', './sample_keys.yaml')
+        keys = key_fob.get_keyset('twitter')
         # check the number of keys
         key_list = list(keys.keys())
         self.assertEqual(4, len(key_list), msg = 'Check the number of keys returned for Twitter')
@@ -27,7 +29,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual('hi', keys['APISecretKey'])
 
         # test with alpha vanatage
-        keys = get_api_keys('alpha_vantage', './sample_keys.yaml')
+        keys = key_fob.get_keyset('alpha_vantage')
         # check the number of keys
         key_list = list(keys.keys())
         self.assertEqual(1, len(key_list), msg = 'Check the number of keys returned for Alpha Vantage')
