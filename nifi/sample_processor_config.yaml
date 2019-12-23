@@ -1,0 +1,12 @@
+
+# sample file for nifi configuration
+# create a copy called 'processor_config.yaml' and add your details
+# the config file is ignored by git
+
+
+# PutS3Processor
+puts3processor:
+    bucket: 'bucket_name'
+    secretaccessid: ''
+    secretaccesskey: ''
+

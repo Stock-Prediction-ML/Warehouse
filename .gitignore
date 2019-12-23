@@ -1,6 +1,9 @@
 # project specific ignores
 
+
+# key and cfg files with access credentials
 data_collection/keys.yaml
+nifi/processor_config.yaml
 
 # ignore the nifi install temp files
 nifi/nifi-*/
