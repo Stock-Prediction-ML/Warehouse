@@ -51,7 +51,7 @@ Configure nifi with the instance IP address
 * Restart NiFi by calling `./bin/nifi.sh restart`
 
 ```bash
-$ sudo ./config.sh <IPv4 Public IP> ./nifi-1.10.0/conf/nifi.properties
+$ sudo ./config.sh <IPv4 Public IP> ./nifi-1.9.2/conf/nifi.properties
 ```
 ### Connect
 
@@ -70,8 +70,8 @@ $ cd Warehouse-Stock-Alternate/nifi/
 # install, configure, and start
 $ chmod +x ./install_nifi.sh
 $ sudo ./install_nifi.sh
-$ sudo ./config.sh <IPv4 Public IP> ./nifi-1.10.0/conf/nifi.properties
-$ sudo ./nifi-1.10.0/bin/nifi.sh restart
+$ sudo ./config.sh <IPv4 Public IP> ./nifi-1.9.2/conf/nifi.properties
+$ sudo ./nifi-1.9.2/bin/nifi.sh restart
 ```
 
 #### References
