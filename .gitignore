@@ -1,7 +1,10 @@
 # project specific ignores
 
 data_collection/keys.yaml
+
+# ignore the nifi install temp files
 nifi/nifi-*/
+nifi/nifi-*
 
 # temp from vscode IDE
 .vscode/
