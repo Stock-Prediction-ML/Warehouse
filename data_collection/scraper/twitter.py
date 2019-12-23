@@ -15,7 +15,7 @@ import logging
 import tweepy
 
 from abstract_api import AbstractAPI
-from base import get_api_keys
+from base import KeyFob
 
 class TwitterScraper(AbstractAPI):
     """
@@ -40,24 +40,26 @@ class TwitterScraper(AbstractAPI):
         Runs a collection operation from Twitter
     """
 
-    def __init__(self, path: str) -> None:
-        """
+    def __init__(self) -> None:
+
+        self.connection = None
+        self.apikeys = None
+        self.tokens = None
+        self.path = ''
+
+    def connect(self, key_fob: KeyFob = None, path: str = '') -> None:
+        """Creates a tweepy.API instance and authenticates with Twitter.
         Parameters
         ----------
         path : str
             A path to the key file (keys.yaml)
         """
-
-        self.connection = None
-        self.apikeys = None
-        self.tokens = None
         self.path = path
-
-    def connect(self) -> None:
-        """Creates a tweepy.API instance and authenticates with Twitter.
-        """
         if (self.apikeys is None) or (self.tokens is None):
-            keys = get_api_keys('twitter', self.path)
+            # create a new fob when one is not provided
+            if key_fob is None:
+                key_fob.set_keys(self.path)
+                keys = key_fob.get_keyset('twitter')
             self.apikeys = [keys['APIKey'], keys['APISecretKey']]
             self.tokens = [keys['AccessToken'], keys['AccessTokenSecret']]
         # be sure to generate from list
