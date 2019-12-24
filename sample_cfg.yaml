@@ -1,0 +1,28 @@
+# Example main configuration file
+
+# AWS
+aws:
+    nifiinstance:
+        publicip:
+        dnsname:
+        sshport:
+
+# nifi processor inputs
+nifiprocessors:
+    puts3processor:
+        bucket: 'bucket_name'
+        secretaccessid:
+        secretaccesskey:
+
+
+# data collection keys
+apikeys:
+    twitter:
+        APIKey: 'ngwebufoiejdnloaju3712nor'
+        APISecretKey: 'hi'
+        AccessToken: 'ghfjs'
+        AccessTokenSecret: 'nsjugehbwekf'
+    alpha_vantage:
+        APIKey:
+    stock_news_api:
+        APIKey:

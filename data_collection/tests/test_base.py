@@ -10,7 +10,7 @@ class TestBase(unittest.TestCase):
     def test_keyfob(self):
 
         key_fob = KeyFob()
-        key_fob.set_keys(path = './sample_keys.yaml')
+        key_fob.set_keys(path = '../sample_cfg.yaml')
         # test with twitter
         keys = key_fob.get_keyset('twitter')
         # check the number of keys

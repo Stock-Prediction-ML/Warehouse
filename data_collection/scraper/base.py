@@ -94,5 +94,5 @@ class KeyFob(AbstractFob):
         """
         
         # key error is raised if source is invalid
-        return self.keys[source.lower()]
+        return self.keys['apikeys'][source.lower()]
 
